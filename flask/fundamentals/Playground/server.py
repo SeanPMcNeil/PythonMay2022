@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "Please Direct Browser to /play"
 
 @app.route('/play/')
 @app.route('/play/<int:num>/')
