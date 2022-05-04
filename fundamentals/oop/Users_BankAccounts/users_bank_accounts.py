@@ -1,8 +1,5 @@
-from re import A
-
-
 class User:
-
+    
     def __init__(self, name, account_type):
         self.name = name
         self.account = BankAccount(account_type, int_rate = 2, balance = 0)
