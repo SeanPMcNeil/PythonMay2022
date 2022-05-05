@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 style="background-color: {{ darkColor }}; color: {{ lightColor }}">*** Checkerboard ***</h1>
+    </div>
+    <div class="checkerboard">
+        <table>
+            {% for i in range(0, row): %}
+                <tr>
+                    {% for j in range(0, col): %}
+                        {% if ((i % 2) ==0) and ((j % 2) == 0) %}
+                            <th>
+                                <div class="light" style="background-color: {{ lightColor }}; outline: 1px solid {{ lightColor }}"></div>
+                            </th>
+                        {% elif ((i %2) != 0) and ((j % 2) == 0) %}
+                            <th>
+                                <div class="dark" style="background-color: {{ darkColor }}; outline: 1px solid {{ darkColor }}"></div>
+                            </th>
+                        {% elif ((i %2) == 0) and ((j % 2) != 0) %}
+                            <th>
+                                <div class="dark" style="background-color: {{ darkColor }}; outline: 1px solid {{ darkColor }}"></div>
+                            </th>
+                        {% elif ((i %2) != 0) and ((j % 2) != 0) %}
+                            <th>
+                                <div class="light" style="background-color: {{ lightColor }}; outline: 1px solid {{ lightColor }}"></div>
+                            </th>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
