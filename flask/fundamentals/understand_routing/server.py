@@ -14,7 +14,7 @@ def say(name):
 
 @app.route('/repeat/<int:num>/<string:word>')
 def repeat(num, word):
-    return (word + "<br>") * num
+    return f"<h3>{word}</h3>" * num
 
 @app.errorhandler(404)
 def page_not_found(e):
