@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></head>
+<body>
+    <div class="container center-align">
+        <h1>Counter</h1>
+        <h3>
+            {% if (clicks == 1): %}
+                {{ clicks }} click
+            {% else %}
+                {{ clicks }} clicks
+            {% endif %}
+        </h3>
+        <div class="row">
+            <div class="col s2 offset-s4">
+                <form action="/click" method="post">
+                    <button class="btn waves-effect waves-light btn-large yellow darken-1" type="submit" name="click" value="1">Click</button>
+                </form>
+            </div>
+            <div class="col s2">
+                <form action="/destroy_session" method="post">
+                    <button class="btn waves-effect waves-light btn-large deep-orange darken-4" type="submit" name="reset">Reset</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s2 offset-s4">
+                <form action="/click" method="post">
+                    <button class="btn waves-effect waves-light btn-large green darken-2" type="submit" name="click" value="2">Click +2</button>
+                </form>
+            </div>
+        </div>
+        <div class="input-field col s12">
+            <form action="/click" method="post">
+                <select class="browser-default" name="click" id="click">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <button class="btn waves-effect waves-light btn-large blue-grey darken-2" type="submit" name="click">Click +</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script></body>
+</html>

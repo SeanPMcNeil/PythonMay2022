@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Great Number Game</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row blue-grey darken-4">
+                <h3 class="center-align white-text">Welcome to the Great Number Game!!!!</h3>
+            </div>
+            <div class="row">
+                <h5 class="center-align">I am thinking of a number between 1 and 100</h5>
+                <h5 class="center-align">{{ number }}</h5>
+            </div>
+            <div class="row red">
+                <h5 class="center-align">Placeholder for Guess Dialogue</h5>
+            </div>
+            <div class="row blue-grey darken-4">
+                <h5 class="yellow center-align">Take a guess!!</h5>
+                <form action="/number_guess" method="post">
+                    <div class="row col s12">
+                        <div class="input-field col s2 offset-s5 center-align">
+                            <input class="white-text" type="number" name="guess" id="number_guess">
+                        </div>
+                    </div>
+                    <div class="row col s12">
+                        <div class="col s4 offset-s5">
+                            <button class="btn btn-large waves-effect waves-light yellow center-align black-text" type="submit">Guess</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>

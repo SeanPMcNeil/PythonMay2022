@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <div class="container indigo darken-4">
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <h1 class="deep-orange-text text-accent-4">Dojo Survey</h1>
+            </div>
+        </div>
+        <div class="row white-text ">
+            <div class="col s8 offset-s1">
+                <form action="/process" method="post">
+                    <label for="name"><h6>Name:</h6></label>
+                    <input class="white-text" type="text" name="name" id="name">
+                    <label for="location"><h6>Dojo Location</h6></label>
+                    <select class="browser-default" name="location" id="location">
+                        <option value="San Diego">San Diego</option>
+                        <option value="Burbank">Burbank</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Online">Online</option>
+                    </select>
+                    <label for="language"><h6>Favorite Language</h6></label>
+                    <select class="browser-default" name="language" id="language">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="C#">C#</option>
+                    </select>
+                    <label for="platform"><h6>Platform of Choice:</h6></label>
+                        <p>
+                            <label for="mac"><input type="radio" name="platform" id="mac" value="Mac" checked><span class="white-text">Mac</span></label>
+                        </p>
+                        <p>
+                            <label for="windows"><input type="radio" name="platform" id="windows" value="Windows"><span class="white-text">Windows</span></label>
+                        </p>
+                        <p>
+                            <label for="linux"><input type="radio" name="platform" id="linux" value="Linux"><span class="white-text">Linux</span></label>
+                        </p>
+                    <label for="comments"><h6>Comments</h6></label>
+                    <textarea class="materialize-textarea white-text" name="comments" id="comments" cols="30" rows="10"></textarea>
+                    <div class="row">
+                        <div class="col s8">
+                            <label for="newsletter">
+                                <input type="checkbox" name="newsletter" id="newsletter" value="newsletter" />
+                                <span class="white-text">Subscribe to newsletter?</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn btn-large deep-orange accent-4 white-text waves-effect waves-light" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

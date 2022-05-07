@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <div class="container indigo darken-4">
+        <div class="row">
+            <div class="col s6 offset-s1">
+                <h1 class="deep-orange-text text-accent-4">{{session['name']}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 offset-s1">
+                <h6 class="deep-orange-text text-accent-4"><u>Submitted Info:</u></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 offset-s1">
+                <p class="white-text">Dojo Location: {{session['location']}}</p>
+                <p class="white-text">Favorite Language: {{session['language']}}</p>
+                <p class="white-text">Platform of Choice: {{session['platform']}}</p>
+                <p class="white-text">Additional Comments:</p>
+                <p class="white-text">{{session['comments']}}</p>
+                {% if session['newsletter'] %}
+                    <p class="white-text">Subscribed to Newsletter</p>
+                {% else %}
+                    <p class="white-text">Not Subscribed to Newsletter</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s2 offset-s8">
+                <form action="/" method="get">
+                    <button class="btn btn-large waves-effect waves-light light-green accent-3 black-text" type="submit">Go Back</button>
+                </form>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
