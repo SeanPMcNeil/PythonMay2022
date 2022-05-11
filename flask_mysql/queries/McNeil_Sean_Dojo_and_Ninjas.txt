@@ -1,0 +1,47 @@
+INSERT INTO dojos (name, created_at)
+VALUES (‘Dojo ‘of Power, NOW());
+
+INSERT INTO dojos (name, created_at)
+VALUES ('Bikushin Karate Academy', NOW());
+
+INSERT INTO dojos (name, created_at)
+VALUES ('Taejyung Dojo', NOW());
+
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM dojos;
+
+INSERT INTO dojos (name, created_at)
+VALUES ('Miyagi Dojo', NOW());
+
+INSERT INTO dojos (name, created_at)
+VALUES ('Cobra Kai Dojo', NOW());
+
+INSERT INTO dojos (name, created_at)
+VALUES ('Eagle Fang Dojo', NOW());
+
+INSERT INTO ninjas (dojo_id,first_name, last_name, age, created_at)
+VALUES 
+	((SELECT id FROM dojos WHERE name = 'Miyagi Dojo'), 'Raul', 'Terry', 23, NOW()),
+	((SELECT id FROM dojos WHERE name = 'Miyagi Dojo'), 'Opal', 'Greenwood', 21, NOW()),
+	((SELECT id FROM dojos WHERE name = 'Miyagi Dojo'), 'Lee', 'Adams', 19, NOW());
+
+INSERT INTO ninjas (dojo_id,first_name, last_name, age, created_at)
+VALUES 
+	((SELECT id FROM dojos WHERE name = 'Cobra Kai Dojo'), 'Debra', 'Huffman', 18, NOW()),
+	((SELECT id FROM dojos WHERE name = 'Cobra Kai Dojo'), 'Michael', 'Wood', 20, NOW()),
+	((SELECT id FROM dojos WHERE name = 'Cobra Kai Dojo'), 'Jamal', 'Husk', 24, NOW());
+
+INSERT INTO ninjas (dojo_id,first_name, last_name, age, created_at)
+VALUES 
+	((SELECT id FROM dojos WHERE name = 'Eagle Fang Dojo'), 'Linda', 'Love', 22, NOW()),
+	((SELECT id FROM dojos WHERE name = 'Eagle Fang Dojo'), 'Paul', 'Brinton', 25, NOW()),
+	((SELECT id FROM dojos WHERE name = 'Eagle Fang Dojo'), 'Joe', 'Fischer', 17, NOW());
+
+SELECT * FROM ninjas
+WHERE dojo_id = 4;
+
+SELECT * FROM ninjas
+WHERE dojo_id = 6;
+
+SELECT dojo_id FROM ninjas
+WHERE id = 11;

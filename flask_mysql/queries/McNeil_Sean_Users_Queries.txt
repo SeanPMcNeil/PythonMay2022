@@ -1,0 +1,27 @@
+INSERT INTO users (first_name, last_name, email, created_at)
+VALUES ('Alysha', 'Foster', 'alyshaefoster@teleworm.us', NOW());
+
+INSERT INTO users (first_name, last_name, email, created_at)
+VALUES ('Scott', 'Swartz', 'scottcswartz@armyspy.com', NOW());
+
+INSERT INTO users (first_name, last_name, email, created_at)
+VALUES ('James', 'Brown', 'jameslbrown@dayrep.com', NOW());
+
+SELECT * FROM users;
+
+SELECT * FROM users
+WHERE email = 'alyshaefoster@teleworm.us';
+
+SELECT * FROM users
+WHERE id = 3;
+
+UPDATE users SET last_name = 'Pancakes'
+WHERE id = 3;
+
+DELETE FROM users WHERE id = 2;
+
+SELECT * FROM users
+ORDER BY first_name;
+
+SELECT * FROM users
+ORDER BY first_name DESC;
