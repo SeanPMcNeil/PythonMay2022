@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Read (One)</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div class="container">
+            {% for user in user %}
+                <div class="row teal lighten-2">
+                    <div class="col s10 offset-s1">
+                        <h1 class="center-align">User {{user.id}}</h1>
+                    </div>
+                    <div class="col s1">
+                        <a href="/users" class="waves-effect waves-light btn blue-grey darken-1">Home</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text center-align">
+                            <span class="card-title">Full Name: {{user.first_name}} {{user.last_name}}</span>
+                            <br>
+                            <p>Email: {{user.email}}</p>
+                            <br>
+                            <p>Created On: {{user.created_at}}</p>
+                            <br>
+                            <p>Last Updated On: {{user.updated_at}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="/users/{{user.id}}/edit" class="waves-effect waves-light btn">Edit</a>
+                    <a href="/delete/{{user.id}}" class="waves-effect waves-light btn">Delete</a>
+                </div>
+            {% endfor %}
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        </body>
+    </html>

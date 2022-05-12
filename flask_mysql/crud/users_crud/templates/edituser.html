@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div class="container">
+            {% for user in user %}
+                <div class="row teal lighten-2">
+                    <div class="col s10 offset-s1">
+                        <h1 class="center-align">Edit User {{user.id}}</h1>
+                    </div>
+                    <div class="col s1">
+                        <a href="/users" class="waves-effect waves-light btn blue-grey darken-1">Home</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <form action="/users/{{user.id}}/edit/processing" method="POST">
+                        <!-- <input type="hidden" name="id" value="{{user.id}}"> -->
+                        <div class="input-field">
+                            <label for="first_name">First Name:</label>
+                            <input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
+                        </div>
+                        <div class="input-field">
+                            <label for="last_name">Last Name:</label>
+                            <input type="text" name="last_name" id="last_name" value="{{user.last_name}}">
+                        </div>
+                        <div class="input-field">
+                            <label for="email">Email Address:</label>
+                            <input type="text" name="email" id="email" value="{{user.email}}">
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit Changes
+                            <i class="material-icons right">send</i>
+                        </button>
+                        <a href="/users/{{user.id}}" class="waves-effect waves-light btn">Show User</a>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>
