@@ -10,6 +10,7 @@
         <h1>These are my friends</h1>
 
         {% for one_friend in all_friends %}
+            <p>School: {{one_friend.school_id}}</p>
             <p>First Name: {{one_friend.first_name}}</p>
             <p>Last Name: {{one_friend.last_name}}</p>
             <p>Occupation: {{one_friend.occupation}}</p>
@@ -22,12 +23,23 @@
 
         <h1>Add a Friend</h1>
         <form action="/create" method="POST">
+
+            <label for="school_id"></label>
+            <select name="school_id" id="school_id">
+                {% for school in schools %}
+                    <option value="{{school.id}}">{{school.id}} - {{school.name}}</option>
+                {% endfor %}
+            </select>
+
             <label for="first_name">First Name:</label>
             <input type="text" name="first_name">
+
             <label for="last_name">Last Name:</label>
             <input type="text" name="last_name">
+
             <label for="occupation" >Occupation:</label>
             <input type="text" name="occupation">
+
             <input type="submit" value="Add Friend">
         </form> 
 

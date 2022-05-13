@@ -1,0 +1,12 @@
+.ul {
+    list-style: none;
+}
+
+#main-row {
+    margin-top: 5vh;
+    display: flex;
+}
+
+.input-field [type=text] {
+    color: white;
+}

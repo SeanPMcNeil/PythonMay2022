@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Ninja</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">    
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" id="main-row">
+                <div class="col s6 offset-s1 blue-grey darken-3 white-text">
+                    <h3>New Ninja</h3>
+                    <div class="input-field">
+                        <form action="/create_ninja" method="post">
+                                <label for="dojo_id">Select Dojo:</label>
+                                <select name="dojo_id" class="browser-default">
+                                    {% for dojo in dojos %}
+                                        <option value="{{dojo.id}}">{{dojo.name}}</option>
+                                    {% endfor %}
+                                </select>
+    
+                                <label for="first_name">First Name:</label>
+                                <input type="text" name="first_name" id="first_name">
+    
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" name="last_name" id="last_name">
+    
+                                <label for="age">Age:</label>
+                                <input type="number" name="age" id="age" class="white-text">
+                                <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Add Ninja
+                                    <i class="material-icons right">add</i>
+                                </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col offset-s1">
+                    <a href="/dojos" class="waves-effect waves-light btn-large"><i class="material-icons left">home</i>Home</a>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>

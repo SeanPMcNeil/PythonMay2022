@@ -1,11 +1,12 @@
 # import the function that will return an instance of a connection
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 
 
 # model the class after the friend table from our database
 class Friend:
     def __init__( self , data ):
         self.id = data['id']
+        self.school_id = data['school_id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.occupation = data['occupation']
@@ -34,7 +35,7 @@ class Friend:
     # Method to Create a Friend
     @classmethod
     def create_friend(cls, data):
-        query = "INSERT INTO friends (first_name, last_name, occupation, created_at) VALUES (%(first_name)s, %(last_name)s, %(occupation)s, NOW());"
+        query = "INSERT INTO friends (school_id, first_name, last_name, occupation, created_at) VALUES (%(school_id)s,%(first_name)s, %(last_name)s, %(occupation)s, NOW());"
         return connectToMySQL('first_flask_schema').query_db(query, data)
 
 
