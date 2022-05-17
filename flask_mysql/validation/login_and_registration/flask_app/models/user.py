@@ -1,10 +1,10 @@
-from unittest import result
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 import re
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-PASSWORD_REGEX = re.compile(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$')
+# Optional Regex to Check for more complex passwords
+# PASSWORD_REGEX = re.compile(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$')
 
 class User:
     def __init__(self, data):
@@ -24,9 +24,7 @@ class User:
     @classmethod
     def get_one(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s"
-        result = connectToMySQL('login_regis_schema').query_db(query, data)
-        user = result
-        return user
+        return connectToMySQL('login_regis_schema').query_db(query, data)
 
     @classmethod
     def get_by_email(cls, data):
@@ -62,8 +60,8 @@ class User:
             is_valid = False
 
         # Password Length Check
-        if not PASSWORD_REGEX.match(user['password']):
-            flash(u"Password must be at least 8 characters with at least 1 number and 1 uppercase letter", "registration")
+        if len(user['password']) < 8:
+            flash(u"Password must be at least 8 characters", "registration")
             is_valid = False
 
         # Password Confirmation Check
