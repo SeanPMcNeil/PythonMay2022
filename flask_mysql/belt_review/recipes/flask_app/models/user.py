@@ -52,13 +52,6 @@ class User:
         query = "SELECT * FROM users WHERE email = %(email)s;"
         result = connectToMySQL('recipes_schema').query_db(query, data)
 
-        # users = []
-
-        # for item in result:
-        #     users.append(User(item))
-
-        # return users
-
         if len(result) < 1:
             return False
         return User(result[0])

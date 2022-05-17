@@ -24,7 +24,7 @@ def create_user():
         "password" : pw_hash
     }
 
-    user_id = User.save(data)
+    User.save(data)
     return redirect('/')
 
 @app.route('/login', methods=['POST'])

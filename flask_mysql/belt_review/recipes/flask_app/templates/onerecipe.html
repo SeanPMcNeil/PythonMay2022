@@ -22,17 +22,15 @@
                 </ul>
             </div>
         </nav>
-        {% for recipe in recipe %}
-            <h1>{{recipe.name}}</h1>
-            <p>Description: {{recipe.description}}</p>
-            {% if recipe.under_thirty == 1 %}
-                <p>Under Thirty Minutes: Yes</p>
-            {% else %}
-                <p>Under Thirty Minutes: No</p>
-            {% endif %}
-            <p>Instructions: {{recipe.instruction}}</p>
-            <p>Date Made: {{recipe.date_made}}</p>
-        {% endfor %}
+        <h1>{{recipe.name}}</h1>
+        <p>Description: {{recipe.description}}</p>
+        {% if recipe.under_thirty == 1 %}
+            <p>Under Thirty Minutes: Yes</p>
+        {% else %}
+            <p>Under Thirty Minutes: No</p>
+        {% endif %}
+        <p>Instructions: {{recipe.instruction}}</p>
+        <p>Date Made: {{recipe.date_made}}</p>
 
 
 

@@ -39,6 +39,7 @@ def one_recipe(id):
     data = {
         'id' : id
     }
+
     recipe = Recipe.one_recipe(data)
     return render_template("onerecipe.html", recipe = recipe)
 
@@ -53,7 +54,7 @@ def edit_recipe(id):
     }
 
     recipe = Recipe.one_recipe(data)
-    if recipe[0]['user_id'] != session['user_id']:
+    if recipe.user_id != session['user_id']:
         return redirect('/dashboard')
     
     return render_template("edit_recipe.html", recipe = recipe)

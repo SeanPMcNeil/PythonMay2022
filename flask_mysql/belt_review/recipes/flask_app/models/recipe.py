@@ -13,6 +13,8 @@ class Recipe:
         self.under_thirty = data['under_thirty']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+
+        self.user = {}
     
     @classmethod
     def save_recipe(cls, data):
@@ -22,8 +24,23 @@ class Recipe:
     @classmethod
     def one_recipe(cls, data):
         query = "SELECT * FROM recipes LEFT JOIN users ON users.id = recipes.user_id WHERE recipes.id = %(id)s;"
-        result = connectToMySQL('recipes_schema').query_db(query, data)
-        return result
+        results = connectToMySQL('recipes_schema').query_db(query, data)
+
+        this_recipe = Recipe(results[0])
+
+        user_data = {
+            "id" : results[0]['users.id'],
+            "first_name" : results[0]['first_name'],
+            "last_name" : results[0]['last_name'],
+            "email" : results[0]['email'],
+            "password" : results[0]['password'],
+            "created_at" : results[0]['users.created_at'],
+            "updated_at" : results[0]['users.updated_at']
+        }
+        
+        this_recipe.user = user.User(user_data)
+
+        return this_recipe
 
     @classmethod
     def delete(cls, data):
