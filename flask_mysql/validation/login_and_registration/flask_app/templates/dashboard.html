@@ -12,9 +12,7 @@
     </head>
     <body>
         <div class="container">
-            {% for user in user %}
-                <h1>Welcome {{user.first_name}}!!!</h1>
-            {% endfor %}
+            <h1>Welcome {{user.first_name}}!!!</h1>
             <a href="/logout" class="waves-effect waves-light btn btn-large green"><i class="material-icons left">logout</i>Logout</a>
         </div>
 

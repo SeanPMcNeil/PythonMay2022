@@ -22,9 +22,10 @@ class User:
         return connectToMySQL("login_regis_schema").query_db(query, data)
 
     @classmethod
-    def get_one(cls, data):
+    def get_by_id(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s"
-        return connectToMySQL('login_regis_schema').query_db(query, data)
+        result = connectToMySQL('login_regis_schema').query_db(query, data)
+        return User(result[0])
 
     @classmethod
     def get_by_email(cls, data):

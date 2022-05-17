@@ -51,7 +51,8 @@ def dashboard():
     data = {
         'id' : session['user_id']
     }
-    user = User.get_one(data)
+
+    user = User.get_by_id(data)
     print(user)
     return render_template("dashboard.html", user = user)
 
