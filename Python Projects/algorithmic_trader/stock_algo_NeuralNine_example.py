@@ -4,13 +4,13 @@ import pandas_datareader as web
 
 plt.style.use("dark_background")
 
-ma_1 = 50
-ma_2 = 200
+ma_1 = 10
+ma_2 = 50
 
-start = dt.datetime.now() - dt.timedelta(days = 365 * 10)
+start = dt.datetime.now() - dt.timedelta(days = 365 * 3)
 end = dt.datetime.now()
 
-data = web.DataReader('SWTSX', 'yahoo', start, end)
+data = web.DataReader('BTC-USD', 'yahoo', start, end)
 data[f'SMA_{ma_1}'] = data['Adj Close'].rolling(window=ma_1).mean()
 data[f'SMA_{ma_2}'] = data['Adj Close'].rolling(window=ma_2).mean()
 
